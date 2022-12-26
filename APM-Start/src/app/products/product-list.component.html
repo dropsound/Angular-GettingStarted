@@ -40,10 +40,12 @@
                                     *ngIf="showImage">
                         </td>
                         <td>{{ product.productName }}</td>
-                        <td>{{ product.productCode | lowercase | convertToSpaces: '-'}}</td>
+                        <td>{{ product.productCode | uppercase | convertToSpaces: '-'}}</td>
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:'RSD':'symbol':'1.2-2' }}</td>
-                        <td>{{ product.starRating }}</td>
+                        <td><apm-star [rating]="product.starRating"
+                            (ratingClicked)="onRatingClicked($event)"></apm-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
